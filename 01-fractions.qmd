@@ -8,5 +8,111 @@ source("R/setup.R")
 #| code-summary: Setup
 
 library(tidyverse)
+theme_set(theme_minimal(base_size = 15))
+
+# devtools::install_github("scienceverse/papercheck")
+library(papercheck)
+```
+
+Papercheck is an R package I'm working on with Daniel Lakens and colleagues. The purpose is to help researchers assess best practices in methodology and reporting. It can also be used to make meta-scientific work scriptable and easier.
+
+The package comes with a built-in dataset of 250 open-access papers from Psychological Science.
+
+You can use the `search_text()` function to search any sentences that contain the word "badge".
+
+```{r}
+badges <- psychsci |>
+  search_text("badge")
+```
+
+Check all the permutations of the badge statements. 
+
+```{r}
+count(badges, text, sort = TRUE)
+```
+
+It looks like the relevant statements all contain the word "received".
+
+```{r}
+badges <- psychsci |>
+  search_text("badge") |>
+  search_text("received")
+```
+
+```{r}
+count(badges, text, sort = TRUE)
+```
+
+
+Use `grepl()` to determine if these sentences contain the text "open data", "open materials" and/or "preregistration".
+
+```{r}
+badges <- badges |>
+  mutate(data = grepl("open data", text, ignore.case = TRUE),
+         materials = grepl("open materials", text, ignore.case = TRUE),
+         prereg = grepl("preregistration", text, ignore.case = TRUE),
+         ) |>
+  select(id, data, materials, prereg)
+```
+
+Now you can use the `info_table()` function to get information about each paper's submission and acceptance dates. Then join this to the badge data and set NA values to FALSE. 
+
+```{r}
+all_papers <- psychsci |>
+  info_table(c("submission")) |>
+  separate(submission, c("received", "accepted"), sep = "; ") |>
+  left_join(badges, by = "id") |>
+  replace_na(replace = list(data = FALSE, 
+                            materials = FALSE, 
+                            prereg = FALSE))
+```
+
+Sort out the dates...
+
+```{r}
+m <- gregexpr("\\d{1,2}/\\d{1,2}/\\d{2}", all_papers$received)
+all_papers$year_received <- regmatches(all_papers$received, m) |> 
+  lapply(mdy) |>
+  sapply(\(x) ifelse(length(x), year(x), NA))
+
+m <- gregexpr("\\d{1,2}/\\d{1,2}/\\d{2}", all_papers$accepted)
+all_papers$year_accepted<- regmatches(all_papers$accepted, m) |> 
+  lapply(mdy) |>
+  sapply(\(x) ifelse(length(x), year(x), NA))
+```
+
+Calculate the fraction of papers each year with open data, materials and preregistration.
+
+
+```{r}
+by_year <- all_papers |>
+  fill(year_received, year_accepted) |>
+  pivot_longer(data:prereg) |>
+  summarise(frac = mean(value), .by = c(year_received, name))
+```
+
+
+
+```{r}
+frac <- c(0, 1/10, 1/5, 1/4, 1/3, 2/5, 1/2, 3/5,  2/3, 3/4, 4/5, 9/10, 1)
+label <- c("0", "1/10", "1/5", "1/4", "1/3", "2/5", "1/2", "3/5", "2/3", "3/4", "4/5", "9/10", "1")
+
+ggplot(by_year, aes(x = year_received, y = frac, colour = name)) +
+  geom_point(size = 3) +
+  geom_line() +
+  scale_x_continuous("Year Received", breaks = 2012:2024) +
+  scale_y_continuous("Fraction of Papers", limits = c(0, 1),
+                     breaks = frac, labels = label) +
+  scale_colour_manual("Badge:", values = c("firebrick", "darkgreen", "dodgerblue3")) +
+  labs(title = "Open Practice Badges",
+       subtitle = "250 Open Access Psychologial Science Papers") +
+  theme(legend.position = c(.2, .8))
+```
+
+Something weird was going on in 2022. Let's figure it out tomorrow.
+
+```{r}
+#| echo: false
+ggsave("images/day1.png", width = 8, height = 8)
 ```
 
