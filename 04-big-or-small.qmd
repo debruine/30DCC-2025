@@ -11,6 +11,11 @@ library(tidyverse)
 theme_set(theme_minimal(base_size = 15))
 ```
 
+I am old enough to remember calculating t or F values by hand, determining the degrees of freedom, and looking up the corresponding p-value in the appendix of my stats textbooks. By necessity, you could only approximate the p-value, leading to papers full of results like "p < .05" or "p < .01".
+
+![](images/t-dist-table.png)
+
+But we've had the ability to calculate the exact p-value for decades now, so there is no excuse to not include it. Let's explore graphically how common the occurrence of inexact p-values is in the set of open access Psychological Science papers included in papercheck.
 
 ## Modules
 
