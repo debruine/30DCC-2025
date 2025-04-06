@@ -14,7 +14,11 @@ theme_set(theme_minimal(base_size = 15))
 library(papercheck)
 ```
 
+## Papercheck
+
 Papercheck is an R package I'm working on with Daniel Lakens and colleagues. The purpose is to help researchers assess best practices in methodology and reporting. It can also be used to make meta-scientific work scriptable and easier.
+
+### PsychSci Open Badges
 
 The package comes with a built-in dataset of 250 open-access papers from Psychological Science.
 
@@ -55,6 +59,9 @@ badges <- badges |>
   select(id, data, materials, prereg)
 ```
 
+
+### Paper Info
+
 Now you can use the `info_table()` function to get information about each paper's submission and acceptance dates. Then join this to the badge data and set NA values to FALSE. 
 
 ```{r}
@@ -67,7 +74,7 @@ all_papers <- psychsci |>
                             prereg = FALSE))
 ```
 
-Sort out the dates...
+The "submission" entry from grobid has a format like "`r psychsci[[1]]$info$submission`", so it needs a little parsing (this is on my to-do list for automatically parsing when you load a grobid XML). 
 
 ```{r}
 m <- gregexpr("\\d{1,2}/\\d{1,2}/\\d{2}", all_papers$received)
@@ -81,8 +88,9 @@ all_papers$year_accepted<- regmatches(all_papers$accepted, m) |>
   sapply(\(x) ifelse(length(x), year(x), NA))
 ```
 
-Calculate the fraction of papers each year with open data, materials and preregistration.
+### Calculate Fractions of Open Practices
 
+Calculate the fraction of papers each year with open data, materials and preregistration.
 
 ```{r}
 by_year <- all_papers |>
@@ -91,7 +99,9 @@ by_year <- all_papers |>
   summarise(frac = mean(value), .by = c(year_received, name))
 ```
 
+## Plot
 
+Plot the data.
 
 ```{r}
 #| label: fig-day1
@@ -110,11 +120,13 @@ ggplot(by_year, aes(x = year_received, y = frac, colour = name)) +
                      breaks = frac, labels = label) +
   scale_colour_manual("Badge:", values = c("firebrick", "darkgreen", "dodgerblue3")) +
   labs(title = "Open Practice Badges",
-       subtitle = "250 Open Access Psychological Science Papers") +
-  theme(legend.position = c(.2, .8))
+       subtitle = "250 Open Access Psychological Science Papers",
+       "debruine.github.io/30DCC-2025/01-fractions") +
+  theme(legend.position = c(.2, .8), 
+        plot.caption = element_text(color = "dodgerblue"))
 ```
 
-Something weird was going on in 2022. Let's figure it out tomorrow.
+Something weird was going on in 2022. Let's figure it out later.
 
 ```{r}
 #| echo: false

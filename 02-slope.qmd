@@ -1,0 +1,191 @@
+# Slope
+
+```{r setup, include = FALSE}
+source("R/setup.R")
+```
+
+```{r}
+library(papercheck)
+library(tidyverse)
+theme_set(theme_minimal(base_size = 15))
+```
+
+## Open Alex Info
+
+You can get information about papers from [Open Alex](https://openalex.org/) by DOI or from a papercheck paper object or list. 
+
+```{r}
+oa_info <- openalex(psychsci[[1]])
+names(oa_info)
+```
+
+Sadly, grobid doesn't always parse the DOIs in papers correctly. For example, the 11th paper in the `psychsci` set has a DOI of "`r psychsci[[11]]$info$doi`", so will produce a warning and no data.
+
+```{r}
+#| warning: true
+oa_info <- openalex(psychsci[10:11])
+
+oa_info[[2]]
+```
+
+We can get a list of the DOIs of the psychsci set with the `info_table()` function and then fix them. 
+
+```{r}
+doi_table <- info_table(psychsci, "doi")
+
+doi_table |> filter(grepl("[a-z]", doi, ignore.case = TRUE))
+```
+
+Psychological Science DOIs should be entirely numeric, so we can just remove non-numeric characters after the / with a little regex.
+
+```{r}
+dois <- sub("[a-z\\.]+$", "", doi_table$doi)
+```
+
+Now we can get all of the OpenAlex data from these papers. This will take a few minutes for 250 papers, and I don't want to have to do this every time I render this book, so I'll save the results as an Rds object, set this code chunk to not evaluate, and load it from the RDS in the future. 
+
+```{r}
+#| echo: fenced
+#| eval: false
+oa_info <- openalex(dois)
+saveRDS(oa_info, "data/oa_info.Rds")
+```
+
+```{r}
+oa_info <- readRDS("data/oa_info.Rds")
+```
+
+## Tabular Data
+
+Now we need to convert the data from OpenAlex to a table. We're going to extract some information about dates of publication and citations.
+
+* `cited_by`: The number of citations to this work.
+* `fwci`: The Field-weighted Citation Impact (FWCI), calculated for a work as the ratio of citations received / citations expected in the year of publications and three following years
+
+```{r}
+info <- oa_info[[1]]
+cites <- map_df(oa_info, \(info) {
+  list(
+    year = info$publication_year,
+    date = info$publication_date,
+    cited_by = info$cited_by_count,
+    fwci = info$fwci
+  )
+})
+
+cites
+```
+
+
+## Plots 
+
+### Citations by FWCI
+
+The first, simplest plot is looking at the raw number of citations and the field-weighted citation impact.
+
+```{r}
+ggplot(cites, aes(x = cited_by, y = fwci)) +
+  geom_point() +
+  geom_smooth(method = "lm", formula = y ~ x)
+```
+
+The data might be better with a log10 scale, although this will remove values of 0, so let's change any values of 0 to 0.1 and label this as 0 on the plot. First, though, we should check the range of fwci values to find a number we can safely convert zeroes to.
+
+```{r}
+min_non0 <- cites$fwci[cites$fwci > 0] |>
+  min(na.rm = TRUE)
+
+cites |> filter(fwci > 0) |>
+  ggplot(aes(x = fwci)) +
+  geom_histogram(binwidth = 0.1, color = "black", fill = "white") +
+  geom_vline(xintercept = 0.1, colour = "red") +
+  scale_x_log10()
+```
+
+It looks like setting 0 to 0.1 will be safe for both citation count (where non-zero values logically can't be lower than 1) and fwci (where non-zero values are all over `r min_non0`). 
+
+```{r}
+cites <- rowwise(cites) |>
+  mutate(cited_by = max(cited_by, 0.1),
+         fwci = max(fwci, 0.1))
+```
+
+Plot this new data and change the 0.1 labels to 0.
+
+```{r}
+ggplot(cites, aes(x = cited_by, y = fwci)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", formula = y ~ x) +
+  scale_x_log10(breaks = c(0.1, 1, 10, 100, 1000),
+                labels = c(0, 1, 10, 100, 1000)) +
+  scale_y_log10(breaks = c(0.1, 1, 10, 100, 1000),
+                labels = c(0, 1, 10, 100, 1000))
+```
+
+### Interpretation
+
+So now we can tell that number of citations and FWCI are positively related, but not perfectly, so what explains the disrepancy? We can look at the year of publication to see if there is a consistent relationship with time since publication.
+
+```{r}
+ggplot(cites, aes(x = cited_by, y = fwci, colour = year)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", formula = y ~ x, colour = "black") +
+  scale_x_log10(breaks = c(0.1, 1, 10, 100, 1000),
+                labels = c(0, 1, 10, 100, 1000)) +
+  scale_y_log10(breaks = c(0.1, 1, 10, 100, 1000),
+                labels = c(0, 1, 10, 100, 1000)) +
+  scale_color_viridis_c()
+```
+
+It looks like the more recent papers tend to be above the line, and older papers below the line. But I don't like showing year as a continuous variable. Let's convert it to a factor and set the colours using the `rainbow()` (I like to set v = 0.75 for a darker aesthetic, and only use the values 0-0.8 of the hue range so the start and end values aren't confusable).
+
+```{r}
+# set colours for each level of the year factor
+rb_colours <- cites$year |>
+  unique() |>
+  length() |>
+  rainbow(v = 0.75, end = 0.8, rev = TRUE)
+
+ggplot(cites, aes(x = cited_by, y = fwci, colour = factor(year))) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", formula = y ~ x, colour = "black") +
+  scale_x_log10(breaks = c(0.1, 1, 10, 100, 1000),
+                labels = c(0, 1, 10, 100, 1000)) +
+  scale_y_log10(breaks = c(0.1, 1, 10, 100, 1000),
+                labels = c(0, 1, 10, 100, 1000)) +
+  scale_color_manual(values = rb_colours)
+```
+
+### Tidy Up
+
+Clean up the labels with `labs()`.
+
+```{r}
+#| label: fig-day2
+#| fig-cap: A chart showing the relationship between citation count (plotted on the x-axis) and field-weighted citation impact (FWCI; plotted on the y-axis). The relation is strongly positive and linear, with some variation. The papers are represented by points with the colour by year of publication (2014-2024), showing that the papers above the regression line tend to be more recent, and those below the line tend to be older. 
+#| fig-width: 8
+#| fig-height: 8
+ggplot(cites, aes(x = cited_by, y = fwci, colour = factor(year))) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", formula = y ~ x, colour = "black") +
+  scale_x_log10(breaks = c(0.1, 1, 10, 100, 1000),
+                labels = c(0, 1, 10, 100, 1000)) +
+  scale_y_log10(breaks = c(0.1, 1, 10, 100, 1000),
+                labels = c(0, 1, 10, 100, 1000)) +
+  scale_color_manual(values = rb_colours) +
+  labs(title = "The Relationship between Citations and FWCI",
+       subtitle = "235 Open Access Psychological Science Papers",
+       x = "Citation Count",
+       y = "Field Weighted Citation Impact",
+       colour = "Publication Year",
+       caption = "debruine.github.io/30DCC-2025/02-slope") +
+  theme(legend.position = c(0.15, 0.75), 
+        plot.caption = element_text(color = "dodgerblue"))
+```
+
+
+
+```{r}
+#| echo: false
+ggsave("images/day2.png", width = 8, height = 8, bg = "white")
+```

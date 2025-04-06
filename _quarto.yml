@@ -37,10 +37,43 @@ book:
     - part: "Comparisons"
       chapters:
       - 01-fractions.qmd
+      - 02-slope.qmd
+      - 03-circular.qmd
+      - 04-big-or-small.qmd
+      - 05-ranking.qmd
+      - 06-florence-nightingale.qmd
     - part: "Distributions"
+      chapters:
+      - 07-outliers.qmd
+      - 08-histogram.qmd
+      - 09-diverging.qmd
+      - 10-multi-modal.qmd
+      - 11-stripes.qmd
+      - 12-data-gov.qmd
     - part: "Relationships"
+      chapters:
+      - 13-clusters.qmd
+      - 14-kinship.qmd
+      - 15-complicated.qmd
+      - 16-negative.qmd
+      - 17-birds.qmd
+      - 18-el-pais.qmd
     - part: "Timeseries"
+      chapters:
+      - 19-smooth.qmd
+      - 20-urbanization.qmd
+      - 21-fossils.qmd
+      - 22-stars.qmd
+      - 23-log-scale.qmd
+      - 24-who.qmd
     - part: "Uncertainties"
+      chapters:
+      - 25-risk.qmd
+      - 26-monochrome.qmd
+      - 27-noise.qmd
+      - 28-inclusion.qmd
+      - 29-extraterrestrial.qmd
+      - 30-national-geographic.qmd
 
 bibliography: include/book.bib
 csl: include/apa.csl
@@ -51,7 +84,7 @@ format:
       light: yeti
       dark: darkly
     code-link: true
-    code-fold: true
+    code-fold: false
     code-line-numbers: true
     code-overflow: wrap
     code-copy: true
@@ -61,4 +94,11 @@ format:
     # mainfont: Open Sans
     css: include/style.css
     include-after-body: include/script.js
+    fig-width: 8
+    fig-height: 8
+    
+execute:
+  echo: true
+  warning: false
+
 

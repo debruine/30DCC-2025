@@ -11,10 +11,6 @@ dcc_theme <- list(
 # custom knit_print functions for data.frame and tbl_df
 library(knitr)
 
-`%||%` <- function(l, r) {
-  if (is.null(l)) r else l
-}
-
 knit_print.data.frame <- function (x, options, ...) {
   # get options
   digits <- options$digits %||% getOption("digits")
@@ -66,19 +62,6 @@ knit_print.data.frame <- function (x, options, ...) {
 
 registerS3method("knit_print", "data.frame", knit_print.data.frame)
 
-
-# default knitr options
-knitr::opts_chunk$set(
-  echo       = TRUE,
-  warning    = FALSE,
-  message    = FALSE,
-  results    = "hold",
-  out.width  = '100%',
-  fig.width  = 8,
-  fig.height = 8,
-  fig.align  = 'center',
-  digits = 3
-)
 
 pkg <- function(txt, url = NULL) {
   if (is.null(url)) {
