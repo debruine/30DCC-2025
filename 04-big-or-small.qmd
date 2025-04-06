@@ -55,7 +55,7 @@ ggplot(p, aes(x = p_value, fill = p_comp)) +
 
 ### Fix x-axis
 
-P-value in research are definitely no uniformly distributed, so let's give this a log10 scale, change the binwidth to 0.1, and dodge the bars.
+P-values in research are definitely not uniformly distributed, so let's give this a log10 scale, change the binwidth to 0.1, and dodge the bars.
 
 ```{r}
 ggplot(p, aes(x = p_value, fill = p_comp)) +
@@ -138,7 +138,7 @@ I think the plot looks better rotated, so I'll use `ggplot2::coord_flip()` and s
 
 ```{r}
 #| label: fig-day4
-#| fig-cap: The distribution of imprecise p-values in results sections. Values with < are shown in red, and > are shown in blue. Notably there are many instances of 'p < .01', 'p < .05', and 'p > .25', with smaller peaks at 'p > .05', `p < .02` and `p < .005`.
+#| fig-cap: The distribution of imprecise p-values in results sections. Values with < are shown in red, and > are shown in blue. Notably there are many instances of `p < .01`, `p < .05`, and `p > .25`, with smaller peaks at `p > .05`, `p < .02` and `p < .005`.
 #| fig-width: 8
 #| fig-height: 8
 
