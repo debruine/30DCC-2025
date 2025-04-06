@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="description" content="Code and charts for the 2025 30-Day Chart Challenge">
-
 <title>4&nbsp; Big or Small – 30DCC (2025)</title>
 <style>
 code{white-space: pre-wrap;}
@@ -21,8 +18,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -44,8 +74,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -71,39 +100,31 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script>
-
-<script type="text/javascript">
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script type="text/javascript">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
-</script>
-<script type="application/json" class="js-hypothesis-config">
+</script><script type="application/json" class="js-hypothesis-config">
 {
   "theme": "clean",
   "openSidebar": false
 }
-</script>
-<script async="" src="https://hypothes.is/embed.js"></script>
-<script>
+</script><script async="" src="https://hypothes.is/embed.js"></script><script>
   window.document.addEventListener("DOMContentLoaded", function (_event) {
     document.body.classList.add('hypothesis-enabled');
   });
-</script>
-
-
-<link rel="stylesheet" href="include/style.css">
+</script><script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding-0.33/datatables.js"></script><script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script><link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><link rel="stylesheet" href="include/style.css">
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -114,13 +135,9 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">30DCC (2025)</a> 
         <div class="sidebar-tools-main">
@@ -136,7 +153,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
@@ -150,8 +167,8 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-fractions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fractions</span></span></a>
@@ -188,7 +205,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
@@ -197,8 +214,8 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-outliers.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Outliers</span></span></a>
@@ -235,7 +252,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
@@ -244,8 +261,8 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./13-clusters.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Clusters</span></span></a>
@@ -282,7 +299,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
@@ -291,8 +308,8 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./19-smooth.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Smooth</span></span></a>
@@ -329,7 +346,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
@@ -338,8 +355,8 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./25-risk.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Risk</span></span></a>
@@ -376,21 +393,38 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li>
+<a href="#modules" id="toc-modules" class="nav-link active" data-scroll-target="#modules"><span class="header-section-number">4.1</span> Modules</a>
+  <ul class="collapse">
+<li><a href="#imprecise-p-values" id="toc-imprecise-p-values" class="nav-link" data-scroll-target="#imprecise-p-values"><span class="header-section-number">4.1.1</span> Imprecise P-Values</a></li>
+  <li><a href="#fix-x-axis" id="toc-fix-x-axis" class="nav-link" data-scroll-target="#fix-x-axis"><span class="header-section-number">4.1.2</span> Fix x-axis</a></li>
+  <li><a href="#impossible-p-values" id="toc-impossible-p-values" class="nav-link" data-scroll-target="#impossible-p-values"><span class="header-section-number">4.1.3</span> Impossible p-values?</a></li>
+  <li><a href="#p-0.25" id="toc-p-0.25" class="nav-link" data-scroll-target="#p-0.25"><span class="header-section-number">4.1.4</span> P &gt; 0.25</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#tidy-up" id="toc-tidy-up" class="nav-link" data-scroll-target="#tidy-up"><span class="header-section-number">4.2</span> Tidy Up</a>
+  <ul class="collapse">
+<li><a href="#thresholds" id="toc-thresholds" class="nav-link" data-scroll-target="#thresholds"><span class="header-section-number">4.2.1</span> Thresholds</a></li>
+  <li><a href="#visuals" id="toc-visuals" class="nav-link" data-scroll-target="#visuals"><span class="header-section-number">4.2.2</span> Visuals</a></li>
+  </ul>
+</li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/debruine/30DCC-2025/edit/master/04-big-or-small.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/debruine/30DCC-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/debruine/30DCC-2025/blob/master/04-big-or-small.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-fractions.html">Comparisons</a></li><li class="breadcrumb-item"><a href="./04-big-or-small.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Big or Small</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Big or Small</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-fractions.html">Comparisons</a></li><li class="breadcrumb-item"><a href="./04-big-or-small.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Big or Small</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Big or Small</span>
+</h1>
 </div>
 
 
@@ -404,14 +438,776 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   
 
 
-</header>
+</header><div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(papercheck)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="modules" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="modules">
+<span class="header-section-number">4.1</span> Modules</h2>
+<p>Papercheck is designed to be modular, so the community can contribute checks. Use <code>module_list()</code> to see the built-in modules.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">module_list</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:left;">
+name
+</th>
+<th style="text-align:left;">
+title
+</th>
+<th style="text-align:left;">
+description
+</th>
+<th style="text-align:left;">
+type
+</th>
+<th style="text-align:left;">
+path
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+all-p-values
+</td>
+<td style="text-align:left;">
+List All P-Values
+</td>
+<td style="text-align:left;">
+List all p-values in the text, returning the matched text (e.g., ‘p = 0.04’) and document location in a table.
+</td>
+<td style="text-align:left;">
+text
+</td>
+<td style="text-align:left;">
+/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/papercheck/modules/all-p-values.mod
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+all-urls
+</td>
+<td style="text-align:left;">
+List All URLs
+</td>
+<td style="text-align:left;">
+List all the URLs in the main text
+</td>
+<td style="text-align:left;">
+text
+</td>
+<td style="text-align:left;">
+/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/papercheck/modules/all-urls.mod
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+imprecise-p
+</td>
+<td style="text-align:left;">
+Imprecise P-Values
+</td>
+<td style="text-align:left;">
+List any p-values reported with insufficient precision (e.g., p &lt; .05 or p = n.s.)
+</td>
+<td style="text-align:left;">
+code
+</td>
+<td style="text-align:left;">
+/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/papercheck/modules/imprecise-p.mod
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+llm-summarise
+</td>
+<td style="text-align:left;">
+Summarise Sections
+</td>
+<td style="text-align:left;">
+Generate a 1-sentence summary for each section
+</td>
+<td style="text-align:left;">
+llm
+</td>
+<td style="text-align:left;">
+/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/papercheck/modules/llm-summarise.mod
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marginal
+</td>
+<td style="text-align:left;">
+Marginal Significance
+</td>
+<td style="text-align:left;">
+List all sentences that describe an effect as ‘marginally significant’.
+</td>
+<td style="text-align:left;">
+text
+</td>
+<td style="text-align:left;">
+/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/papercheck/modules/marginal.mod
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+osf-check
+</td>
+<td style="text-align:left;">
+Check Status of OSF Links
+</td>
+<td style="text-align:left;">
+List all OSF links and whether they are open, closed, or do not exist.
+</td>
+<td style="text-align:left;">
+code
+</td>
+<td style="text-align:left;">
+/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/papercheck/modules/osf-check.mod
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ref-consistency
+</td>
+<td style="text-align:left;">
+Reference Consistency
+</td>
+<td style="text-align:left;">
+Check if all references are cited and all citations are referenced
+</td>
+<td style="text-align:left;">
+code
+</td>
+<td style="text-align:left;">
+/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/papercheck/modules/ref-consistency.mod
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+retractionwatch
+</td>
+<td style="text-align:left;">
+RetractionWatch
+</td>
+<td style="text-align:left;">
+Flag any cited papers in the RetractionWatch database
+</td>
+<td style="text-align:left;">
+code
+</td>
+<td style="text-align:left;">
+/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/papercheck/modules/retractionwatch.mod
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sample-size-ml
+</td>
+<td style="text-align:left;">
+Sample Size
+</td>
+<td style="text-align:left;">
+[DEMO] Classify each sentence for whether it contains sample-size information, returning only sentences with probable sample-size info.
+</td>
+<td style="text-align:left;">
+ml
+</td>
+<td style="text-align:left;">
+/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/papercheck/modules/sample-size-ml.mod
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+statcheck
+</td>
+<td style="text-align:left;">
+StatCheck
+</td>
+<td style="text-align:left;">
+Check consistency of p-values and test statistics
+</td>
+<td style="text-align:left;">
+code
+</td>
+<td style="text-align:left;">
+/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/papercheck/modules/statcheck.mod
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<section id="imprecise-p-values" class="level3" data-number="4.1.1"><h3 data-number="4.1.1" class="anchored" data-anchor-id="imprecise-p-values">
+<span class="header-section-number">4.1.1</span> Imprecise P-Values</h3>
+<p>The module “imprecise-p” lists instances of p-values that are not exact value or p &lt; .001.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>imp_p <span class="ot">&lt;-</span> <span class="fu">module_run</span>(psychsci, <span class="st">"imprecise-p"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">head</span>(imp_p<span class="sc">$</span>table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:left;">
+p_comp
+</th>
+<th style="text-align:right;">
+p_value
+</th>
+<th style="text-align:left;">
+section
+</th>
+<th style="text-align:left;">
+header
+</th>
+<th style="text-align:right;">
+div
+</th>
+<th style="text-align:right;">
+p
+</th>
+<th style="text-align:right;">
+s
+</th>
+<th style="text-align:left;">
+id
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+p &lt; .05
+</td>
+<td style="text-align:left;">
+&lt;
+</td>
+<td style="text-align:right;">
+0.050
+</td>
+<td style="text-align:left;">
+results
+</td>
+<td style="text-align:left;">
+Tryptophan depletion and sensitivity to social norms
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+0956797614527830
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+p &lt; .005
+</td>
+<td style="text-align:left;">
+&lt;
+</td>
+<td style="text-align:right;">
+0.005
+</td>
+<td style="text-align:left;">
+fig
+</td>
+<td style="text-align:left;">
+Fig. 2 .
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+0956797614527830
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+p &lt; .05
+</td>
+<td style="text-align:left;">
+&lt;
+</td>
+<td style="text-align:right;">
+0.050
+</td>
+<td style="text-align:left;">
+fig
+</td>
+<td style="text-align:left;">
+Finally, participants who
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+0956797614527830
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+p &lt; .05
+</td>
+<td style="text-align:left;">
+&lt;
+</td>
+<td style="text-align:right;">
+0.050
+</td>
+<td style="text-align:left;">
+results
+</td>
+<td style="text-align:left;">
+Results and discussion
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+0956797614557697
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+p &lt; .05
+</td>
+<td style="text-align:left;">
+&lt;
+</td>
+<td style="text-align:right;">
+0.050
+</td>
+<td style="text-align:left;">
+results
+</td>
+<td style="text-align:left;">
+Results and discussion
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+0956797614557697
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+p &gt; .29
+</td>
+<td style="text-align:left;">
+&gt;
+</td>
+<td style="text-align:right;">
+0.290
+</td>
+<td style="text-align:left;">
+results
+</td>
+<td style="text-align:left;">
+Results and discussion
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+0956797614557697
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Check what sections these are in.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">count</span>(imp_p<span class="sc">$</span>table, section)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:left;">
+section
+</th>
+<th style="text-align:right;">
+n
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+abstract
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+discussion
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fig
+</td>
+<td style="text-align:right;">
+129
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+funding
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+intro
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+method
+</td>
+<td style="text-align:right;">
+39
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+results
+</td>
+<td style="text-align:right;">
+201
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tab
+</td>
+<td style="text-align:right;">
+23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Values in figure and table captions are probably something like “* p &lt; .05, ** p &lt; .01”, so let’s focus just on values in the results sections.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>p <span class="ot">&lt;-</span> imp_p<span class="sc">$</span>table <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">filter</span>(section <span class="sc">==</span> <span class="st">"results"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(p, <span class="fu">aes</span>(<span class="at">x =</span> p_value, <span class="at">fill =</span> p_comp)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="04-big-or-small_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="fix-x-axis" class="level3" data-number="4.1.2"><h3 data-number="4.1.2" class="anchored" data-anchor-id="fix-x-axis">
+<span class="header-section-number">4.1.2</span> Fix x-axis</h3>
+<p>P-value in research are definitely no uniformly distributed, so let’s give this a log10 scale, change the binwidth to 0.1, and dodge the bars.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(p, <span class="fu">aes</span>(<span class="at">x =</span> p_value, <span class="at">fill =</span> p_comp)) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>, <span class="at">position =</span> <span class="fu">position_dodge2</span>()) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="04-big-or-small_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="impossible-p-values" class="level3" data-number="4.1.3"><h3 data-number="4.1.3" class="anchored" data-anchor-id="impossible-p-values">
+<span class="header-section-number">4.1.3</span> Impossible p-values?</h3>
+<p>OK, what is going on with the p-values over 1? You can use the <code>expand_text()</code> function to expand text to the full sentence of a selection, or add sentences before and/or after it.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>imp_p<span class="sc">$</span>table <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">filter</span>(p_value <span class="sc">&gt;=</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">expand_text</span>(psychsci) <span class="sc">|&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">select</span>(text, expanded)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:left;">
+expanded
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+p &lt; 2.2
+</td>
+<td style="text-align:left;">
+Adoptees had significantly fewer years of education (p = 3.3 × 10 -11 compared with group d; p &lt; 2.2 × 10 -16 compared with all nonadopted individuals in the UK Biobank).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+p &lt; 2.2
+</td>
+<td style="text-align:left;">
+This clock was less accurate than the PedBE clock but still correlated with chronological age, r = .64, 95% CI = [.57, .70], t(308) = 14.77, p &lt; 2.2 × 10 -16 .
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+p &lt; 2.2
+</td>
+<td style="text-align:left;">
+Epigenetic age was calculated using the PedBE clock (L M McEwen et al., 2020; https:// github.com/kobor-lab/Public-Scripts/blob/master/ PedBE.Md), which was highly correlated with chronological age, r = .89, 95% confidence interval (CI) = [.85, .92], t(308) = 24.70, p &lt; 2.2 × 10 -16 .
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>It looks like these are somewhat non-standard ways of writing scientific notation (papercheck will correctly read, for example, 2.2e-16) that I’ll need to update the module to detect in a later revision. Let’s just exclude them for now.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>p <span class="ot">&lt;-</span> <span class="fu">filter</span>(p, p_value <span class="sc">&lt;=</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(p, <span class="fu">aes</span>(<span class="at">x =</span> p_value, <span class="at">fill =</span> p_comp)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>, <span class="at">position =</span> <span class="fu">position_dodge2</span>()) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">scale_x_log10</span>(<span class="at">limits =</span> <span class="fu">c</span>(.<span class="dv">001</span>, <span class="fl">1.2</span>),</span>
+<span id="cb10-4"><a href="#cb10-4"></a>                <span class="at">breaks =</span> <span class="fu">c</span>(.<span class="dv">001</span>, .<span class="dv">01</span>, .<span class="dv">05</span>, .<span class="dv">1</span>, .<span class="dv">25</span>, <span class="dv">1</span>),</span>
+<span id="cb10-5"><a href="#cb10-5"></a>                <span class="at">labels =</span> <span class="fu">c</span>(.<span class="dv">001</span>, .<span class="dv">01</span>, .<span class="dv">05</span>, .<span class="dv">1</span>, .<span class="dv">25</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="04-big-or-small_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="p-0.25" class="level3" data-number="4.1.4"><h3 data-number="4.1.4" class="anchored" data-anchor-id="p-0.25">
+<span class="header-section-number">4.1.4</span> P &gt; 0.25</h3>
+<p>What’s going on with “p &lt; .25”?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>p <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">filter</span>(p_comp <span class="sc">==</span> <span class="st">"&gt;"</span>, p_value <span class="sc">==</span> <span class="fl">0.25</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">expand_text</span>(psychsci) <span class="sc">|&gt;</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">select</span>(id, expanded)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="htmlwidget-2615d2b5a939264f8b6b" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2615d2b5a939264f8b6b">{"x":{"filter":"none","vertical":false,"data":[["0956797615615584","0956797615615584","0956797616634665","0956797616657319","0956797616661199","0956797616667447","0956797616667447","0956797616667447","0956797616667447","0956797617692000","0956797617692000","0956797617692000","0956797617692000","0956797617692000","0956797617693326","0956797617693326","0956797617693326","0956797617693326","0956797617705667","0956797617705667","0956797617716922","0956797617716922","09567976231156413"],["Time increased negative attitudes among liberal participants, b = 0.13, SE = 0.06, 95% CI = [0.02, 0.24], t(1922) = 2.34, p = .020, but did not affect attitudes among conservative participants, b = -0.04, SE = 0.06, 95% CI = [-0.15, 0.07], t(1922) = -0.64, p &gt; .250.","Time increased negative attitudes among liberal participants, b = 0.22, SE = 0.06, 95% CI = [0.10, 0.33], t(1922) = 3.63, p &lt; .001, but did not affect attitudes among conservative participants, b = 0.03, SE = 0.06, 95% CI = [-0.09, 0.14], t(1922) = 0.45, p &gt; .250.","The twoway interactions between knowledge distance and search effort (odds ratio = 1.67, p = .080) and between knowledge distance and search variation (odds ratio = 0.65, p = .077) were marginally significant, whereas the interaction between search effort and variation was not significant (odds ratio = 1.01, p &gt; .250).","Paired-samples t tests for the pseudoword items showed no significant effect of the case format of the initial letter on accuracy, t(25) &lt; 1, p &gt; .250, or RTs, t(25) = 1.33, p = .195.","Consequently, receivers' use of the odd-oneout signal on inversion trials did not differ significantly from their use of the odd-one-out signal on one-ax trials (p &gt; .250), in which alternate selection strategies (M = .02, SE = .02) were only negligibly deployed.","We found no gender differences in task performance, t(51) = -0.21, p &gt; .250.","We found no gender differences in task performance, t(51) = -0.98, p &gt; .250.","We found no gender differences in task performance, t(51) = -0.66, p &gt; .250.","Step 1, in which the predictors were fine motor skills, gross motor skills, age, and gender, did not produce significant results, F(4, 48) = 0.70, p &gt; .250.","Indeed, there was no statistically significant relationship between endorsements of anger and disgust, r = -.01, 95% confidence interval (CI) = [-.15, .13], p &gt; .25.","However, there was no simple effect of target condition on surprise, t(199) = 0.58, p &gt; .25, d = 0.08, 95% CI = [-0.36, 0.19].","Results were, again, more in line with a sociofunctional perspective than an equivalence perspective: Anger related positively to higher-cost, physically or verbally aggressive sentiments (direct aggression), t(102.65) = 2.26, p = .026, b = 0.07, 95% CI = [0.01, 0.14], whereas disgust did not, t(802.32) = 0.25, p &gt; .25, b = 0.01, 95% CI = [-0.04, 0.05].","Tests of the simple effects of target condition on aggression indicated that, although endorsement of direct aggression was higher in the self compared with the other condition, t(344) = -4.55, p &lt; .001, d = -0.48, 95% CI = [-0.70, -0.27], indirect aggression did not vary between the target conditions, t(344) = -0.91, p &gt; .25, d = -0.10, 95% CI = [-0.31, 0.11].","Again, results indicated that endorsement of direct aggression was higher for violations that targeted the self rather than another person, t(343) = -4.57, p &lt; .001, d = -0.43, 95% CI = [-0.65, -0.22], whereas target condition did not have a significant effect on endorsement of indirect aggression, though the pattern of the means was in the opposing direction, t(343) = 1.03, p &gt; .25, d = 0.10, 95% CI = [-0.11, 0.31] (see Fig.","These effects were not significantly correlated across individuals (Fig. 2b), which suggests that there was no relationship between the two kinds of motivation (Pearson's r = .10, p &gt; .25).","There was no correlation between these two effects, which supports the dissociation observed in Experiment 1 (r = .13, p &gt; .25; Fig. 2b).","This was true for both reward (r = .089, p &gt; .25) and penalty (r = .30, p = .14).","In reward blocks, the results of Experiment 1 were replicated, showing pupillary dilation for contingent rewards, t(24) = 2.46, p = .011, but not for noncontingent rewards, t(24) = 0.09, p &gt; .25.","In both-targets blocks, saccade latencies were smaller than in one-target blocks, but did not differ significantly for switch trials (M = 234 ms) and repeat trials (M = 232 ms), t(11) = 0.25, p &gt; .250, Cohen's d = 0.09.","In bothtargets blocks, participants switched on 34% of all displays and initiated saccades toward the target with the same latency on switch trials (M = 279 ms) and on repeat trials (M = 277 ms), t(19) = 0.99, p &gt; .250, Cohen's d = 0.02, whereas in one-target blocks, saccade latencies for switch trials (M = 326 ms) were significantly higher than for repeat trials (M = 310 ms), t(19) = 2.6, p = .02, Cohen's d = 0.17, which indicates that switch costs were incurred.","It was not, however, associated with the more general aggregated measures of experienced reward (p &gt; .250), nor perceived expresser reward (p &gt; .250).","It was not, however, associated with the more general aggregated measures of experienced reward (p &gt; .250), nor perceived expresser reward (p &gt; .250).","The type of deprivation had specific effects on motivation, as participants reported neither more loneliness and desire for social contact in the food deprivation condition nor more hunger and desire for food in the social isolation condition (p &gt; .25) compared with baseline."]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>id<\/th>\n      <th>expanded<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"name":"id","targets":0},{"name":"expanded","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>It’s not just one paper, is this a norm in some fields?</p>
+</section></section><section id="tidy-up" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="tidy-up">
+<span class="header-section-number">4.2</span> Tidy Up</h2>
+<section id="thresholds" class="level3" data-number="4.2.1"><h3 data-number="4.2.1" class="anchored" data-anchor-id="thresholds">
+<span class="header-section-number">4.2.1</span> Thresholds</h3>
+<p>Maybe some of these “p &lt; .05” statements are about thresholds, not imprecise reporting. Let’s check the full sentence for the first instance of an imprecise p-value in each paper.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>exp <span class="ot">&lt;-</span> p <span class="sc">|&gt;</span> <span class="fu">expand_text</span>(psychsci)</span>
+<span id="cb12-2"><a href="#cb12-2"></a></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="co"># get the first instance per paper</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>exp <span class="sc">|&gt;</span> </span>
+<span id="cb12-5"><a href="#cb12-5"></a>  <span class="fu">slice</span>(<span class="dv">1</span>, <span class="at">.by =</span> id) <span class="sc">|&gt;</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a>  <span class="fu">pull</span>(expanded)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "(Statistical significance was tested against a threshold of p &lt; .05; bootstrapped models that provided 95% confidence intervals for the coefficients described below can be found in Table S2 in the Supplemental Material.)"                                                                                                                                                                                                                                                                    
+ [2] "Crucially, we also found significant effects of congruence: Participants reported lower confidence overall when TMS was incongruent with their response than when it was congruent (p &lt; .05)."                                                                                                                                                                                                                                                                                                   
+ [3] "Better selfcontrol correlated with higher intelligence (r = .41, p &lt; .01) and to a lesser extent with higher social class (r = .14, p &lt; .01); these results are in line with previous research (Moffitt et al., 2011)."                                                                                                                                                                                                                                                                          
+ [4] "Generalized linear models (repeated measures ANCOVA with Poisson errors) in which time was a covariate confirmed a significant interaction effect between experimental group and time, χ 2 (1, N = 52) = 8.05, p &lt; .01, which illustrated a difference between the time dynamics of intrusive memories between the two experimental groups."                                                                                                                                                     
+ [5] "Direct pairwise comparisons via bootstrapped t-test analyses indicated that requests with photographs classified as happy were funded at a higher rate than those with photographs classified as sad (the category with the next best lending rate), t(3023) = 2.02, p &lt; .05, β = 0.133, 95% CI = [0.004, 0.263])."                                                                                                                                                                              
+ [6] "Time increased negative attitudes among liberal participants, b = 0.13, SE = 0.06, 95% CI = [0.02, 0.24], t(1922) = 2.34, p = .020, but did not affect attitudes among conservative participants, b = -0.04, SE = 0.06, 95% CI = [-0.15, 0.07], t(1922) = -0.64, p &gt; .250."                                                                                                                                                                                                                      
+ [7] "Significant results are presented in boldface (p &lt; .05)."                                                                                                                                                                                                                                                                                                                                                                                                                                        
+ [8] "The results showed no difference in the weight assigned to the value of losses and gains per se, t(55) &lt; 1.2, p &gt; .23, Cohen's d &lt; .17, only to the weight assigned to the associated feelings-expected feelings: t(55) = 3.59, p = .001, 95% CI = [1.29, 4.55], Cohen's d = .479; experienced feelings: Feeling (Change From Baseline) t(55) = 2.28, p = .027, 95% CI = [0.197, 2.89], Cohen's d = 0.307."                                                                                      
+ [9] "The twoway interactions between knowledge distance and search effort (odds ratio = 1.67, p = .080) and between knowledge distance and search variation (odds ratio = 0.65, p = .077) were marginally significant, whereas the interaction between search effort and variation was not significant (odds ratio = 1.01, p &gt; .250)."                                                                                                                                                                
+[10] "In addition, a main effect of participant sex emerged, F(1, 361) = 8.86, p &lt; .01, η p 2 = .02, 90% CI = [.005, .056], with men diversifying less than women."                                                                                                                                                                                                                                                                                                                                    
+[11] "Paired-samples t tests for the pseudoword items showed no significant effect of the case format of the initial letter on accuracy, t(25) &lt; 1, p &gt; .250, or RTs, t(25) = 1.33, p = .195."                                                                                                                                                                                                                                                                                                         
+[12] "Consequently, receivers' use of the odd-oneout signal on inversion trials did not differ significantly from their use of the odd-one-out signal on one-ax trials (p &gt; .250), in which alternate selection strategies (M = .02, SE = .02) were only negligibly deployed."                                                                                                                                                                                                                         
+[13] "For inferential purposes, we selected a two-tailed cutoff value of p &lt; .05."                                                                                                                                                                                                                                                                                                                                                                                                                     
+[14] "We found no gender differences in task performance, t(51) = -0.21, p &gt; .250."                                                                                                                                                                                                                                                                                                                                                                                                                    
+[15] "Planned comparisons showed that participants who were trained in numerosity discrimination showed significantly improved performance in numerosity discrimination at Test Session 2, z = 3.38, p &lt; .02, but those gains were not sustained at Test Session 3, z = 1.39, n.s."                                                                                                                                                                                                                    
+[16] "Using the same fixed-effects model as before (Equation 1) to examine change in Web browsing behavior in the week after the earthquake, we found that although greater intensity predicted more visits to communications Web sites, t = 14.0, p &lt; .001, and functional Web sites, t = 12.23, p &lt; .001, it predicted fewer visits to hedonic Web sites, t = -3.00, p &lt; .01 (see Section 4.2 in the Supplemental Material)."                                                                        
+[17] "Indeed, there was no statistically significant relationship between endorsements of anger and disgust, r = -.01, 95% confidence interval (CI) = [-.15, .13], p &gt; .25."                                                                                                                                                                                                                                                                                                                           
+[18] "These effects were not significantly correlated across individuals (Fig. 2b), which suggests that there was no relationship between the two kinds of motivation (Pearson's r = .10, p &gt; .25)."                                                                                                                                                                                                                                                                                                   
+[19] "In both-targets blocks, saccade latencies were smaller than in one-target blocks, but did not differ significantly for switch trials (M = 234 ms) and repeat trials (M = 232 ms), t(11) = 0.25, p &gt; .250, Cohen's d = 0.09."                                                                                                                                                                                                                                                                     
+[20] "It was not, however, associated with the more general aggregated measures of experienced reward (p &gt; .250), nor perceived expresser reward (p &gt; .250)."                                                                                                                                                                                                                                                                                                                                          
+[21] "Note: Correlations significant at the p &lt; .05 level are highlighted in bold."                                                                                                                                                                                                                                                                                                                                                                                                                    
+[22] "Notably, though, Time 7 reading fluency did predict Time 7 reading comprehension when family risk was omitted from the model, β = 0.29, p &lt; .01."                                                                                                                                                                                                                                                                                                                                                
+[23] "The increase in risk was modest: a standard-deviation decrease in the polygenic score was associated with a 20% to 30% greater risk of having been cautioned or convicted (E-Risk cohort: incidencerate ratio, or IRR = 1.33, 95% CI = [1.13, 1.55], p &lt; .01; Dunedin cohort: IRR = 1.21, 95% CI = [1.09, 1.34], p &lt; .01; Table 1)."                                                                                                                                                             
+[24] "Participants were more likely to lie when their partner lied compared with when their partner reported honestly in the previous report (i.e., previous round for first movers and previous stage for second movers; Wilcoxon signed-rank test, p &lt; .01)."                                                                                                                                                                                                                                        
+[25] "The time series of positive affect shows some signs of collective behavior (ϕ = 0.26, 95% CI = [0.042, 0.474], p &lt; .05), but with a weaker memory than negative affect."                                                                                                                                                                                                                                                                                                                         
+[26] "This effect was also visible in the right aPFC, although it did not reach statistical significance (threshold p &lt; .005, uncorrected, MNI values for local maxima: x = 24, y = 60, z = 16)."                                                                                                                                                                                                                                                                                                      
+[27] "Black asterisks indicate significant differences between groups, and red asterisks indicate significant differences between group mean responses and chance (*p &lt; .05, **p &lt; .01, ***p &lt; .001)."                                                                                                                                                                                                                                                                                                 
+[28] "Asterisks on the x-axis indicate a significant nonzero effect of the factor congruence (i.e., a difference in RTs between gratings appearing at the location of a template-matching and a template-mismatching object), and asterisks above brackets indicate that this effect of congruence significantly differed between conditions (p &lt; .005)."                                                                                                                                              
+[29] "Notwithstanding the lack of overall effect, workload significantly interacted with transaction frame, F(1, 268) = 12.748, p &lt; .01, η p 2 = .045."                                                                                                                                                                                                                                                                                                                                                
+[30] "However, in boys, the difference between F0s in the gender-neutral and stereotypically male occupations was not significant, p &gt; .05 (also see Fig."                                                                                                                                                                                                                                                                                                                                             
+[31] "Model comparison indicated a significant improvement in fit to the data of the more complex model including condition, χ 2 (1) = 8.89, p &lt; .01."                                                                                                                                                                                                                                                                                                                                                 
+[32] "Distance from the nearest COVID-19 epicenter (defined as a county with at least 10 con firmed coronavirus cases when the study was run; log-transformed because of right skew) was not significant ly related to belief in either true or false headlines but was negatively correlated with sharing intentions for both true and false headlines-no significant interactions with veracity, p &gt; .15; the interaction between distance and condition was marginal, F(1, 25522) = 3.07, p = .080."
+[33] "Greenhouse-Geisser-corrected values are reported when Mauchley's test of sphericity was significant (p &lt; .05)."                                                                                                                                                                                                                                                                                                                                                                                  
+[34] "The main effect of illness recency did not meet our preregistered threshold (p &lt; .025)-recently ill: M = 661 ms, SD = 197; not recently ill: M = 626 ms, SD = 153, F(1, 400) = 4.23, η p 2 = .010, 90% CI = [.000, .039], p = .040-nor did the interaction between illness recency and face type (disfigured vs. typical), F(1, 400) = 1.87, η p 2 = .005, 90% CI = [.000, .027], p = .173."                                                                                                     
+[35] "Symbols indicate significant and marginally significant differences between groups ( † p &lt; .10, *p &lt; .05, ***p &lt; .001, Bonferroni corrected)."                                                                                                                                                                                                                                                                                                                                                   
+[36] "This effect was significant in Study 2, t(28) = -2.10, p = .045, 95% CI for the mean difference = [-3.9, -0.04], d = 0.29 (other parameters in Study 2: p &gt; .352), indicating a modest general test-repetition effect across samples."                                                                                                                                                                                                                                                           
+[37] "To assess the foreground bias, we compared responses to foreground and background conditions and found a significantly greater proportion of responses for the foreground than the background conditions for both the 250-ms duration, t(35) = 3.50, p &lt; .002, d = 1.24, and the 330-ms duration, t(35) = 4.66, p &lt; .001, d = 0.93."                                                                                                                                                             
+[38] "Post hoc permutation analyses confirmed that the interaction stemmed from a difference between 3D and 2D stimuli for intact items; detection times for intact 3D items were shorter than for their 2D photographs (3D -2D: ΔM = -0.91 s, SD = 2.15, 95% CI = [-1.42, -0.41], uncorrected p &lt; .005, FDR q &lt; 0.01, d = 0.42)."                                                                                                                                                                     
+[39] "Statistical significance was determined using a Bayesian z test. *p &lt; .05."                                                                                                                                                                                                                                                                                                                                                                                                                      
+[40] "No participants scored below chance in the filler trials (&lt; 31 based on a binomial probability distribution, p &lt; .05), indicating that all participants were attending to the task and could therefore be included in the subsequent analyses."                                                                                                                                                                                                                                                  
+[41] "A control model, in which self-ratings on the five personality traits were randomly shuffled within each participant, performed poorly (AIC = 196.4, χ 2 &lt; .001, p &gt; .999), and the parameter estimate of the randomly shuffled variable assessing participants' self-reported personality traits was nonsignificant, β ≤ -0.001, t(358.9) = -0.06, p = .95."                                                                                                                                    
+[42] "The extent of decrease was moderated by age: Older individuals exhibited shallower decreases in neuroticism (g 11 = 0.024, p &lt; .01) and steeper decreases in openness (g 11 = -0.026, p &lt; .001)."                                                                                                                                                                                                                                                                                                
+[43] "First, we found that both the observed and simulated bias magnitudes increased as the physical probe distance increased (observed: r = .66, p &lt; .002 for color; r = .55, p = .018 for shape; simulated: r = .94, p &lt; .001 for color; r = .94, p &lt; .001 for shape)."                                                                                                                                                                                                                              
+[44] "When the classifier was trained on either the senders' or the receivers' facial muscle activity, it could predict the cued message significantly better than chance (chance hit rate = 16.7%; sender: M = 24.8%, SD = 5.9% across the tenfold cross-validation procedure; p &lt; .001, n = 914 trials with data available from both muscles; Fig. 2c; receiver: M = 21.0%, SD = 4.4%; p &lt; .05, n = 931 trials; Fig. 2d)."                                                                           
+[45] "Asterisks indicate significant differences between target locations (*p &lt; .05, Bonferroni corrected), as determined by paired-samples t tests."                                                                                                                                                                                                                                                                                                                                                  
+[46] "By contrast, cancer-related stress and depressive symptoms showed no significant associations among individuals who scored high on the index of psychosocial resilience (p &gt; .05)."                                                                                                                                                                                                                                                                                                              
+[47] "An initial comparison of performance in the temporaldiscounting task examining delay duration (0 s, 15 s, 30 s) indicated a linear effect of delay: As expected, lemurs chose the larger reward less often as the delay increased, c 2 (2) = 11.97, p = .002 (p &lt; .05 for significant comparison; for model parameters, see Table S3 in the Supplemental Material)."                                                                                                                             
+[48] "There was no statistically signifi cant heterogeneity in the effects of scientificconsensus communication on belief in facts between experiments, τ 2 = 0.001, Q(39) = 48.72, p &lt; .137, I 2 = 19.9%, 95% CI = [0%, 46.2%]."                                                                                                                                                                                                                                                                      
+[49] "The interaction between CS type and percept modality was significant, F(1, 26) = 17.91, p &lt; .037, η 2 = .01."                                                                                                                                                                                                                                                                                                                                                                                    
+[50] "We did not correct for multiple comparisons because the relation between response proportions at similar window sizes meant that these tests were not independent of one another; all comparisons therefore used a significance criterion of p &lt; .05 based on the assumption that rates would be lower for the local boundary cases."                                                                                                                                                            
+[51] "Path weights are standardized (*p &lt; .05)."                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+[52] "As shown in Figure 3a, participants generally learned more from positive than from negative outcomes across all conditions, t(71) = 3.10, p &lt; .01, d = 0.37, 95% CI = [0.00, 0.01]."                                                                                                                                                                                                                                                                                                             
+[53] "Regions with significant associations between loneliness and ISC are outlined in black; a false-discovery-rate corrected (FDR-corrected) significance threshold of p &lt; .05 was used."                                                                                                                                                                                                                                                                                                            
+[54] "An exploratory factor analysis based on the raw behavior judgments with subsequent oblique rotation clearly indicated two factors (see Table S2), which were weakly correlated (r = .22, p &lt; .01)."                                                                                                                                                                                                                                                                                              
+[55] "As expected, there was a main effect of time interval, F( 4 the intervals differed between themselves (p &lt; .01 for all comparisons), demonstrating that participants were accurate at discriminating between different intervals, which is consistent with findings of previous studies (Candini et al., 2022;Frassinetti et al., 2009;Magnani et al., 2013)."                                                                                                                                   
+[56] "The type of deprivation had specific effects on motivation, as participants reported neither more loneliness and desire for social contact in the food deprivation condition nor more hunger and desire for food in the social isolation condition (p &gt; .25) compared with baseline."                                                                                                                                                                                                            
+[57] "We found a strong effect of base-rate manipulation on the perceived health-taste relationship within contexts, F(1, 61) = 6.93, p = .01, η p 2 = .10, as well as across contexts, F(1, 61) = 10.3, p &lt; .01, η p 2 = .14."                                                                                                                                                                                                                                                                        
+[58] "In additional exploratory analyses, we found that a significant proportion of adults and children performed above chance levels by responding correctly on 100% of trials (binomial test, p &lt; .01)."                                                                                                                                                                                                                                                                                             
+[59] "It should be noted, however, that although these effects reached significance at the p &lt; .05 level, the 95% CIs suggested they were not statistically significant."                                                                                                                                                                                                                                                                                                                              
+[60] "Indeed, pupil dilation was significantly stronger prior to a saccade compared with a covert attentional shift from approximately 100 ms before target onset (Mdn β = 24.561, range = 13.599-29.752; Mdn t = 3.811, range = 2.582-4.138, p &lt; .01; Fig. 2a)."                                                                                                                                                                                                                                      
+[61] "We found that having a greater proportion of peers who hold the gendermath stereotypical belief lowered girls' participation only in extracurricular mathematics courses (b = -0.016, SE = 0.010, p &lt; .1)."                                                                                                                                                                                                                                                                                      
+[62] "Pearson and Filon's z test (Pearson &amp; Filon, 1898) revealed that empathic accuracy was more strongly correlated with both self-rated relationship satisfaction (z = 4.96, p &lt; .001) and with peer-rated relationship satisfaction (z = 2.80, p &lt; .01) than with cognitive ability."                                                                                                                                                                                                              
+[63] "In the first part of the main experiment, performance did not differ between the learned and not-learned character sets: the d′ scores were 1.3 for both sets, t(44) = 0.52, p &gt; .60, d = 0.08, indicative of essential (prelearning) comparability of the two randomly selected sets of Chinese characters."                                                                                                                                                                                    
+[64] "Model 4 reveals that after accounting for gender and birth year, there was a significant negative interaction between Republican partisanship and the Republican Culture Index (hazard ratio = 0.90, 95% CI = [0.82, 0.98], p &lt; .05)."                                                                                                                                                                                                                                                           
+[65] "Model fit was good, χ 2 (43) = 42.875, p &lt; .477, CFI = 1.00, RMSEA &lt; .001, SRMR = .03."                                                                                                                                                                                                                                                                                                                                                                                                          
+[66] "We found a statistically significant difference between the full and null models, β = 2.94, SE = 1.3, χ 2 (1) = 7.01, p &lt; .01, indicating an above-chance preference for homomorphic orders."                                                                                                                                                                                                                                                                                                    
+[67] "For the opponent, significant increases in the likelihood of pitches being called strikes after the ejection are present for coaches' ejections (OR = 1.398, 95% CI = [1.211, 1.613], p &lt; .001) but not for players' ejections (OR = 1.128, 95% CI = [0.982, 1.295], p &lt; .1138)."                                                                                                                                                                                                                
+[68] "We then assessed whether there were differences in participant age across the profiles and found a very small effect, ANOVA: F(5, 644) = 2.291, p &lt; .043, η 2 = .001."                                                                                                                                                                                                                                                                                                                           
+[69] "The prediction from adolescent-reported household chaos at age 16 was significantly greater (p &lt; .050) than that from parent reports for the six mental-health outcomes, including depression, self-control, aggression, anxiety, alcohol use, and antisocial behavior, with adolescents who reported experiencing greater household chaos suffering worse mental health in young adulthood."                                                                                                    
+[70] "compared to low-PE stimuli (mean confidence = 2.6 ± 0.12), with 23 of 25 participants showing a significant (p &lt; .05) elevation in confidence (Fig. 3b; bootstrap test), leading to a large effect at the group level, t(24) = -5.77, p &lt; .001, d z = -1.63."                                                                                                                                                                                                                                    
+[71] "In separate logistic regressions for each position in each sample, the framing effect remained significant at the p &lt; .05 level in seven of the eight tests."                                                                                                                                                                                                                                                                                                                                    
+[72] "A rank-based Spearman's correlation test (p &lt; .05 in the Shapiro-Wilk test of normality) indicates that in our sample there was no significant correlation between the calculated subjective-awareness score and the difference in RTs between high-and low-probability locations in the b-CFS task (r = .15, p = .488; see Fig. 2c), suggesting that the effect on conscious access did not depend on the level of awareness of the regularity."                                                </code></pre>
+</div>
+</div>
+<p>It looks like values with the words “threshold” or “cutoff” or an asterisk (“*“) tend to be statements about thresholds. Let’s check that and then exclude them.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">search_text</span>(exp<span class="sc">$</span>expanded, <span class="st">"threshold|cutoff|</span><span class="sc">\\</span><span class="st">*"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">pull</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "(Statistical significance was tested against a threshold of p &lt; .05; bootstrapped models that provided 95% confidence intervals for the coefficients described below can be found in Table S2 in the Supplemental Material.)"                                                                                                                                                               
+ [2] "Predictors were coded as follows-accuracy: error = 0, correct = 1; congruence: incongruent = 0, congruent = 1; time: preresponse = 0, postresponse = 1. **p &lt; .01."                                                                                                                                                                                                                         
+ [3] "The graph in (c) shows aggregate lending rate for photographs categorized as \"angry,\" \"calm,\" \"happy,\" and \"sad\"; asterisks with brackets indicate significant differences between categories, and the asterisk inside the data bar indicates a significant difference from the mean lending rate (*p &lt; .05)."                                                                      
+ [4] "For inferential purposes, we selected a two-tailed cutoff value of p &lt; .05."                                                                                                                                                                                                                                                                                                                
+ [5] "This effect was also visible in the right aPFC, although it did not reach statistical significance (threshold p &lt; .005, uncorrected, MNI values for local maxima: x = 24, y = 60, z = 16)."                                                                                                                                                                                                 
+ [6] "Black asterisks indicate significant differences between groups, and red asterisks indicate significant differences between group mean responses and chance (*p &lt; .05, **p &lt; .01, ***p &lt; .001)."                                                                                                                                                                                            
+ [7] "The main effect of illness recency did not meet our preregistered threshold (p &lt; .025)-recently ill: M = 661 ms, SD = 197; not recently ill: M = 626 ms, SD = 153, F(1, 400) = 4.23, η p 2 = .010, 90% CI = [.000, .039], p = .040-nor did the interaction between illness recency and face type (disfigured vs. typical), F(1, 400) = 1.87, η p 2 = .005, 90% CI = [.000, .027], p = .173."
+ [8] "Symbols indicate significant and marginally significant differences between groups ( † p &lt; .10, *p &lt; .05, ***p &lt; .001, Bonferroni corrected)."                                                                                                                                                                                                                                              
+ [9] "Symbols indicate significant and marginally significant differences between and within groups ( † p &lt; .10, *p &lt; .05, ***p &lt; .001, Bonferroni corrected)."                                                                                                                                                                                                                                   
+[10] "Asterisks indicate significant components of the trends (dashed lines; *p &lt; .05, ***p &lt; .001)."                                                                                                                                                                                                                                                                                             
+[11] "Statistical significance was determined using a Bayesian z test. *p &lt; .05."                                                                                                                                                                                                                                                                                                                 
+[12] "Asterisks indicate significant differences between target locations (*p &lt; .05, Bonferroni corrected), as determined by paired-samples t tests."                                                                                                                                                                                                                                             
+[13] "Asterisks indicate significant differences between groups ( † p &lt; .09, *p &lt; .05, **p &lt; .01)."                                                                                                                                                                                                                                                                                               
+[14] "Path weights are standardized (*p &lt; .05)."                                                                                                                                                                                                                                                                                                                                                  
+[15] "Regions with significant associations between loneliness and ISC are outlined in black; a false-discovery-rate corrected (FDR-corrected) significance threshold of p &lt; .05 was used."                                                                                                                                                                                                       </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>p_better <span class="ot">&lt;-</span> exp <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"threshold|cutoff|</span><span class="sc">\\</span><span class="st">*"</span>, expanded))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="visuals" class="level3" data-number="4.2.2"><h3 data-number="4.2.2" class="anchored" data-anchor-id="visuals">
+<span class="header-section-number">4.2.2</span> Visuals</h3>
+<p>I think the plot looks better rotated, so I’ll use <code><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">ggplot2::coord_flip()</a></code> and set the axis breaks to the most common values, plus clean up the labels.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>breaks <span class="ot">&lt;-</span> <span class="fu">c</span>(.<span class="dv">001</span>, .<span class="dv">002</span>, .<span class="dv">005</span>, .<span class="dv">01</span>, .<span class="dv">02</span>, .<span class="dv">05</span>, .<span class="dv">1</span>, .<span class="dv">25</span>, <span class="dv">1</span>)</span>
+<span id="cb17-2"><a href="#cb17-2"></a>total_papers <span class="ot">&lt;-</span> <span class="fu">unique</span>(p_better<span class="sc">$</span>id) <span class="sc">|&gt;</span> <span class="fu">length</span>()</span>
+<span id="cb17-3"><a href="#cb17-3"></a></span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="fu">ggplot</span>(p_better, <span class="fu">aes</span>(<span class="at">x =</span> p_value, <span class="at">fill =</span> p_comp)) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>,</span>
+<span id="cb17-6"><a href="#cb17-6"></a>                 <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.05</span>)) <span class="sc">+</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a>  <span class="fu">scale_x_log10</span>(<span class="at">limits =</span> <span class="fu">c</span>(.<span class="dv">001</span>, <span class="fl">1.1</span>),</span>
+<span id="cb17-8"><a href="#cb17-8"></a>                <span class="at">breaks =</span> breaks,</span>
+<span id="cb17-9"><a href="#cb17-9"></a>                <span class="at">labels =</span> breaks) <span class="sc">+</span></span>
+<span id="cb17-10"><a href="#cb17-10"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"firebrick"</span>, <span class="st">"dodgerblue"</span>),</span>
+<span id="cb17-11"><a href="#cb17-11"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"p &lt; less than"</span>, <span class="st">"p &gt; greater than"</span>)) <span class="sc">+</span></span>
+<span id="cb17-12"><a href="#cb17-12"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"The Distribution of Imprecise P-Values in Results Sections"</span>,</span>
+<span id="cb17-13"><a href="#cb17-13"></a>       <span class="at">subtitle =</span> <span class="fu">paste0</span>(total_papers, <span class="st">"/"</span>, <span class="fu">length</span>(psychsci), </span>
+<span id="cb17-14"><a href="#cb17-14"></a>          <span class="st">" Open Access Psychological Science Papers"</span>),</span>
+<span id="cb17-15"><a href="#cb17-15"></a>       <span class="at">x =</span> <span class="st">"P-Value (log10 scale)"</span>,</span>
+<span id="cb17-16"><a href="#cb17-16"></a>       <span class="at">y =</span> <span class="st">"Number of P-Values"</span>,</span>
+<span id="cb17-17"><a href="#cb17-17"></a>       <span class="at">fill =</span> <span class="st">""</span>,</span>
+<span id="cb17-18"><a href="#cb17-18"></a>       <span class="at">caption =</span> <span class="st">"debruine.github.io/30DCC-2025/04-big-or-small"</span>) <span class="sc">+</span></span>
+<span id="cb17-19"><a href="#cb17-19"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb17-20"><a href="#cb17-20"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.75</span>, <span class="fl">0.85</span>), </span>
+<span id="cb17-21"><a href="#cb17-21"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"dodgerblue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-day4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-day4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-big-or-small_files/figure-html/fig-day4-1.png" class="img-fluid figure-img" width="768">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-day4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: The distribution of imprecise p-values in results sections. Values with &lt; are shown in red, and &gt; are shown in blue. Notably there are many instances of ‘p &lt; .01’, ‘p &lt; .05’, and ‘p &gt; .25’, with smaller peaks at ‘p &gt; .05’, <code>p &lt; .02</code> and <code>p &lt; .005</code>.
+</figcaption></figure>
+</div>
+</div>
+</div>
 
 
-
-
-
-</main> <!-- /main -->
-<script>
+</section></section></main><!-- /main --><script>
 $( document ).ready(function() {
   function move_sidebar() {
     var w = window.innerWidth;
@@ -424,8 +1220,7 @@ $( document ).ready(function() {
   move_sidebar();
   window.onresize = move_sidebar;
 });
-</script>
-<script id="quarto-html-after-body" type="application/javascript">
+</script><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -988,9 +1783,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./03-circular.html" class="pagination-link" aria-label="Circular">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Circular</span></span>
       </a>          
@@ -1002,28 +1795,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>CC-BY 2025, Lisa DeBruine</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/debruine/30DCC-2025/edit/master/04-big-or-small.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/debruine/30DCC-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/debruine/30DCC-2025/blob/master/04-big-or-small.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/debruine/30DCC-2025/edit/master/04-big-or-small.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/debruine/30DCC-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/debruine/30DCC-2025/blob/master/04-big-or-small.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
+<li class="nav-item compact">
     <a class="nav-link" href="https://github.com/debruine/30DCC-2025">
       <i class="bi bi-github" role="img">
 </i> 
     </a>
   </li>  
 </ul>
-    </div>
+</div>
   </div>
 </footer>
-
-
 
 
 </body></html>

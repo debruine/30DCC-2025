@@ -1,2 +1,166 @@
 # Big or Small
 
+```{r setup, include = FALSE}
+source("R/setup.R")
+```
+
+
+```{r}
+library(papercheck)
+library(tidyverse)
+theme_set(theme_minimal(base_size = 15))
+```
+
+
+## Modules
+
+Papercheck is designed to be modular, so the community can contribute checks. Use `module_list()` to see the built-in modules.
+
+```{r}
+module_list()
+```
+
+### Imprecise P-Values
+
+The module "imprecise-p" lists instances of p-values that are not exact value or p < .001. 
+
+```{r}
+imp_p <- module_run(psychsci, "imprecise-p")
+
+head(imp_p$table)
+```
+
+Check what sections these are in.
+
+```{r}
+count(imp_p$table, section)
+```
+
+Values in figure and table captions are probably something like "* p < .05, ** p < .01", so let's focus just on values in the results sections.
+
+```{r}
+p <- imp_p$table |>
+  filter(section == "results")
+```
+
+```{r}
+ggplot(p, aes(x = p_value, fill = p_comp)) +
+  geom_histogram(binwidth = 0.01)
+```
+
+### Fix x-axis
+
+P-value in research are definitely no uniformly distributed, so let's give this a log10 scale, change the binwidth to 0.1, and dodge the bars.
+
+```{r}
+ggplot(p, aes(x = p_value, fill = p_comp)) +
+  geom_histogram(binwidth = 0.1, position = position_dodge2()) +
+  scale_x_log10()
+```
+
+
+### Impossible p-values?
+
+OK, what is going on with the p-values over 1? You can use the `expand_text()` function to expand text to the full sentence of a selection, or add sentences before and/or after it. 
+
+```{r}
+imp_p$table |>
+  filter(p_value >= 1) |>
+  expand_text(psychsci) |>
+  select(text, expanded)
+```
+
+It looks like these are somewhat non-standard ways of writing scientific notation (papercheck will correctly read, for example, 2.2e-16) that I'll need to update the module to detect in a later revision. Let's just exclude them for now. 
+
+
+```{r}
+p <- filter(p, p_value <= 1)
+```
+
+
+```{r}
+ggplot(p, aes(x = p_value, fill = p_comp)) +
+  geom_histogram(binwidth = 0.1, position = position_dodge2()) +
+  scale_x_log10(limits = c(.001, 1.2),
+                breaks = c(.001, .01, .05, .1, .25, 1),
+                labels = c(.001, .01, .05, .1, .25, 1))
+```
+
+
+### P > 0.25
+
+What's going on with "p < .25"?
+
+```{r}
+p |>
+  filter(p_comp == ">", p_value == 0.25) |>
+  expand_text(psychsci) |>
+  select(id, expanded)
+```
+
+It's not just one paper, is this a norm in some fields?
+
+## Tidy Up
+
+### Thresholds
+
+Maybe some of these "p < .05" statements are about thresholds, not imprecise reporting. Let's check the full sentence for the first instance of an imprecise p-value in each paper.
+
+```{r}
+exp <- p |> expand_text(psychsci)
+
+# get the first instance per paper
+exp |> 
+  slice(1, .by = id) |>
+  pull(expanded)
+```
+
+It looks like values with the words "threshold" or "cutoff" or an asterisk ("*") tend to be statements about thresholds. Let's check that and then exclude them.
+
+```{r}
+search_text(exp$expanded, "threshold|cutoff|\\*") |>
+  pull(text)
+```
+
+```{r}
+p_better <- exp |>
+  filter(!grepl("threshold|cutoff|\\*", expanded))
+```
+
+### Visuals
+
+I think the plot looks better rotated, so I'll use `ggplot2::coord_flip()` and set the axis breaks to the most common values, plus clean up the labels.
+
+```{r}
+#| label: fig-day4
+#| fig-cap: The distribution of imprecise p-values in results sections. Values with < are shown in red, and > are shown in blue. Notably there are many instances of 'p < .01', 'p < .05', and 'p > .25', with smaller peaks at 'p > .05', `p < .02` and `p < .005`.
+#| fig-width: 8
+#| fig-height: 8
+
+breaks <- c(.001, .002, .005, .01, .02, .05, .1, .25, 1)
+total_papers <- unique(p_better$id) |> length()
+
+ggplot(p_better, aes(x = p_value, fill = p_comp)) +
+  geom_histogram(binwidth = 0.1,
+                 position = position_dodge(width = 0.05)) +
+  scale_x_log10(limits = c(.001, 1.1),
+                breaks = breaks,
+                labels = breaks) +
+  scale_fill_manual(values = c("firebrick", "dodgerblue"),
+                    labels = c("p < less than", "p > greater than")) +
+  labs(title = "The Distribution of Imprecise P-Values in Results Sections",
+       subtitle = paste0(total_papers, "/", length(psychsci), 
+          " Open Access Psychological Science Papers"),
+       x = "P-Value (log10 scale)",
+       y = "Number of P-Values",
+       fill = "",
+       caption = "debruine.github.io/30DCC-2025/04-big-or-small") +
+  coord_flip() +
+  theme(legend.position = c(0.75, 0.85), 
+        plot.caption = element_text(color = "dodgerblue"))
+```
+
+```{r}
+#| echo: false
+ggsave("images/day4.png", width = 8, height = 8, bg = "white")
+```

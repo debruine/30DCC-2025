@@ -4,25 +4,26 @@
 source("R/setup.R")
 ```
 
+I'm struggling to think of something that uses circles, but I always like those plots where the size of a sample is represented by the size of the circle on a plot.
+
 ```{r}
 library(papercheck)
 library(tidyverse)
 theme_set(theme_minimal(base_size = 15))
 ```
 
+
+## OpenAlex Info
+
+Load the OpenAlex info we downloaded yesterday.
+
 ```{r}
-badges <- read_csv("data/psychsci-badges.csv") |>
-  mutate(open = data | materials | prereg)
+oa_info <- readRDS("data/oa_info.Rds")
 ```
 
-```{r circular-polar}
-ggplot(badges, aes(x = year(date), 
-                 y = cited_by, 
-                 color = open)) +
-  geom_point(alpha = 0.2) +
-  scale_y_log10() +
-  coord_polar()
-```
+
+
+
 
 
 

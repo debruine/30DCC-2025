@@ -394,8 +394,12 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 </div>
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#openalex-info" id="toc-openalex-info" class="nav-link active" data-scroll-target="#openalex-info"><span class="header-section-number">3.1</span> OpenAlex Info</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/debruine/30DCC-2025/edit/master/03-circular.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/debruine/30DCC-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/debruine/30DCC-2025/blob/master/03-circular.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-fractions.html">Comparisons</a></li><li class="breadcrumb-item"><a href="./03-circular.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Circular</span></a></li></ol></nav><div class="quarto-title">
@@ -415,33 +419,21 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   
 
 
-</header><div class="cell">
+</header><p>I’m struggling to think of something that uses circles, but I always like those plots where the size of a sample is represented by the size of the circle on a plot.</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(papercheck)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<section id="openalex-info" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="openalex-info">
+<span class="header-section-number">3.1</span> OpenAlex Info</h2>
+<p>Load the OpenAlex info we downloaded yesterday.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>badges <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/psychsci-badges.csv"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">mutate</span>(<span class="at">open =</span> data <span class="sc">|</span> materials <span class="sc">|</span> prereg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(badges, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">year</span>(date), </span>
-<span id="cb3-2"><a href="#cb3-2"></a>                 <span class="at">y =</span> cited_by, </span>
-<span id="cb3-3"><a href="#cb3-3"></a>                 <span class="at">color =</span> open)) <span class="sc">+</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">coord_polar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="03-circular_files/figure-html/circular-polar-1.png" class="img-fluid figure-img" width="768"></p>
-</figure>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>oa_info <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/oa_info.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
-
-</main><!-- /main --><script>
+</section></main><!-- /main --><script>
 $( document ).ready(function() {
   function move_sidebar() {
     var w = window.innerWidth;
@@ -1035,7 +1027,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/debruine/30DCC-2025/edit/master/03-circular.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/debruine/30DCC-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/debruine/30DCC-2025/blob/master/03-circular.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/debruine/30DCC-2025/edit/master/03-circular.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/debruine/30DCC-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/debruine/30DCC-2025/blob/master/03-circular.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
 <li class="nav-item compact">

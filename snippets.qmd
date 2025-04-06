@@ -1,0 +1,35 @@
+# Snippets
+
+## OA Author Countries
+
+```{r}
+oa_info <- readRDS("data/oa_info.Rds")
+
+authors <- map_df(oa_info, \(oa) {
+  map_df(oa$authorships, \(author) {
+    list(name = author$author$display_name,
+         orcid = author$author$orcid,
+         countries = author$countries
+         )
+  }) |>
+    mutate(id = strsplit(oa$doi, "/")[[1]][[5]])
+})
+```
+
+## Keywords
+
+You can get a table of the keywords for each paper in the `psychsci` set of 250 open access papers using `papercheck::info_table()`. This is semicolon-delimited, so we can get it into long format (one keyword per row) with `tidyr::separate_longer_delim()`. 
+
+```{r}
+kw <- info_table(psychsci, "keywords") |>
+  separate_longer_delim(keywords, "; ")
+
+head(kw)
+```
+
+Let's look at all the keywords that are in more than 5 papers.
+
+```{r}
+count(kw, keywords, sort = TRUE) |>
+  filter(!is.na(keywords), n > 5)
+```
